@@ -4,7 +4,7 @@ import { createContext, useState } from "react";
 export const AppContext = createContext();
 
 const AppContextProvider = (props) => {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(null); //if true,crdits page shows purchase option
 
     // The value to be passed to the context
     const value = {
