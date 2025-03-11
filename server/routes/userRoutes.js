@@ -11,5 +11,5 @@ userRouter.post("/credits", userAuth ,userCredits);
 export default userRouter;
 
 
-// https://localhost:4000/api/user/register
-// https://localhost:4000/api/user/login
+// http://localhost:4000/api/user/register
+// http://localhost:4000/api/user/login
