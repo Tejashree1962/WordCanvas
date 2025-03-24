@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const Login = () => {
   const [state, setState] = useState("Login");
-  const { setShowLogin, backendUrl, updateToken, setUser, loadCreditsData } = useContext(AppContext);
+  const { setShowLogin, backendUrl, updateToken, setUser } = useContext(AppContext);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,16 +24,9 @@ const Login = () => {
       });
 
       if (data.success) {
-        // Update token in context and localStorage
         updateToken(data.token);
-        localStorage.setItem("token", data.token);
         setUser(data.user);
-
-        // Delay loadCreditsData to ensure the token update is reflected
-        setTimeout(() => {
-          loadCreditsData();
-        }, 100);
-
+        localStorage.setItem("token", data.token);
         setShowLogin(false);
         toast.success(state === "Login" ? "Login Successful!" : "Account Created Successfully!");
       } else {
